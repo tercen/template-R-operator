@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Release
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -35,9 +35,11 @@ jobs:
           -e TERCEN_URI=${{ secrets.TERCEN_TEST_OPERATOR_URI }} \
           -e GITHUB_TOKEN=${GITHUB_TOKEN} \
           tercen/tercenctl:release operator install --tag ${TAG} --repo ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
+    - name: Create required package.json
+      run: echo '{}' > package.json
     - name: Build changelog
       id: build_changelog
-      uses: tercen/release-changelog-builder-action@main
+      uses: tercen/generate-changelog-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create release
