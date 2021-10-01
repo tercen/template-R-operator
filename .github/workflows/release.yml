@@ -39,7 +39,7 @@ jobs:
       run: echo '{}' > package.json
     - name: Build changelog
       id: Changelog
-      uses: scottbrenner/generate-changelog-action@master
+      uses: tercen/generate-changelog-action@master
     - name: Create release
       id: create_release
       uses: actions/create-release@latest
