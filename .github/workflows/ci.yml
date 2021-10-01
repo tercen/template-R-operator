@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [main, master]
-    tags:
-      - '*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [main, master]
 
@@ -23,26 +21,6 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: VERSION
-      run: |
-        echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
-    - name: SEMVER VERSION
-      run: |
-        SEMVER=( ${VERSION//./ } )
-        echo "MAJOR=${SEMVER[0]}" >> $GITHUB_ENV
-        echo "MINOR=${SEMVER[1]}" >> $GITHUB_ENV
-        echo "PATCH=${SEMVER[2]}" >> $GITHUB_ENV
-    - name: COMMIT_NUMBER
-      run: |
-        echo "COMMIT_NUMBER=${GITHUB_SHA::8}" >> $GITHUB_ENV
-    - name: Get operator tag
-      run: |
-        echo "TAG=${VERSION}" >> $GITHUB_ENV
-      if: env.PATCH != ''
-    - name: Get operator commit
-      run: |
-        echo "TAG=${GITHUB_SHA}" >> $GITHUB_ENV
-      if: env.PATCH == ''
     - name: Pull tercenctl
       run: docker pull tercen/tercenctl:release
     - name: Install operator
@@ -52,4 +30,4 @@ jobs:
           -e TERCEN_PASSWORD=${{ secrets.TERCEN_TEST_OPERATOR_PASSWORD }} \
           -e TERCEN_URI=${{ secrets.TERCEN_TEST_OPERATOR_URI }} \
           -e GITHUB_TOKEN=${GITHUB_TOKEN} \
-          tercen/tercenctl:release operator install --tag ${TAG} --repo ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
+          tercen/tercenctl:release operator install --tag ${GITHUB_SHA} --repo ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
