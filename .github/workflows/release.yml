@@ -37,9 +37,7 @@ jobs:
           tercen/tercenctl:release operator install --tag ${TAG} --repo ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
     - name: Build changelog
       id: build_changelog
-      uses: tercen/generate-changelog-action@master
-      with:
-        configuration: 'release-changelog-builder-config.json'
+      uses: tercen/release-changelog-builder-action@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create release
