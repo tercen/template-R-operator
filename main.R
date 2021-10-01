@@ -1,9 +1,11 @@
 library(tercen)
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 
-(ctx = tercenCtx())  %>% 
+ctx = tercenCtx()
+
+ctx %>%
   select(.y, .ci, .ri) %>% 
   group_by(.ci, .ri) %>%
-  summarise(median = median(.y)) %>%
+  summarise(mean = mean(.y)) %>%
   ctx$addNamespace() %>%
   ctx$save()
