@@ -27,4 +27,6 @@ git tag -a 0.0.1 -m "++" && git push --tags
 
 ## commit message format
 
+see https://github.com/tercen/generate-changelog-action
 see https://github.com/lob/generate-changelog#usage
+
