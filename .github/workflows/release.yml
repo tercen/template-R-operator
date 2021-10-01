@@ -38,10 +38,8 @@ jobs:
     - name: Create required package.json
       run: echo '{}' > package.json
     - name: Build changelog
-      id: build_changelog
-      uses: tercen/generate-changelog-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      id: Changelog
+      uses: scottbrenner/generate-changelog-action@master
     - name: Create release
       id: create_release
       uses: actions/create-release@latest
@@ -50,6 +48,6 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
-        body: ${{steps.build_changelog.outputs.changelog}}
+        body: ${{steps.Changelog.outputs.changelog}}
         draft: false
         prerelease: false
