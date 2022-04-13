@@ -11,7 +11,7 @@ The `Template R operator` is a template repository for the creation of R operato
 7. push to the github repo
 8. go to tercen and install the operator
 
-More information can be found in [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
+More information can be found in [Tercen developer's guide](https://tercen.github.io/developers_guide/).
 
 Below is the operator README standard structure:
 
