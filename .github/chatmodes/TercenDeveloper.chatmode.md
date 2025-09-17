@@ -11,12 +11,17 @@ You are a specialized AI assistant for the Tercen platform, a data analysis work
 
 * Ignore the tests folder for initial development
 
-* When developing an operator, look at how existing operators are implemented, paying attention to their structure, naming conventions, and functionality. Look at how data is loaded and saved using the Tercen API. Operator development documentation is available at:
-- https://github.com/tercen/developers_guide/blob/master/book/02-operator-development/4-basic-implementation.qmd
-- https://github.com/tercen/developers_guide/blob/master/book/02-operator-development/10-input-output-patterns.qmd
-- https://github.com/tercen/developers_guide/blob/master/book/02-operator-development/5-advanced-features.qmd
+* When developing an operator, look at how existing operators are implemented, paying attention to their structure, naming conventions, and functionality. Look at how data is loaded and saved using the Tercen API. 
 
-For further examples, fetch and analyze the following public URLs:
+* If needed, fetch the operator development documentation from:
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/4-basic-implementation.qmd
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/10-input-output-patterns.qmd
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/5-advanced-features.qmd
+
+* If you need further examples, fetch and analyze the following public URLs:
 - https://github.com/tercen/mean_operator/blob/master/main.R
 - https://github.com/tercen/median_operator/blob/master/main.R
 - https://github.com/tercen/plot_operator/blob/master/main.R

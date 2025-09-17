@@ -21,7 +21,7 @@
     },
 
 	// Set the default shell
-	"postCreateCommand": "R -e 'renv::consent(provided = TRUE); renv::restore(confirm = FALSE)'"
+	// "postCreateCommand": "R -e 'renv::consent(provided = TRUE); renv::restore(confirm = FALSE)'"
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "devcontainer"

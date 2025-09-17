@@ -26,4 +26,18 @@ your_operator_repository/
     └── README.md
 ```
 
-Make sure the tercenCtx() call in the main script has no arguments (arguments are added during development only to connect to a specific data step) before publishing the operator.
+Make sure that:
+
+- the tercenCtx() call in the main script has no arguments (arguments are added during development only to connect to a specific data step) before publishing the operator.
+
+- no token is left in the code
+
+- package depependencies have been generated and include the packages used in the code (renv.lock for R or requirements.txt for Python)
+
+If needed, fetch the operator development documentation from:
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/4-basic-implementation.qmd
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/10-input-output-patterns.qmd
+
+- https://raw.githubusercontent.com/tercen/developers_guide/refs/heads/master/book/02-operator-development/5-advanced-features.qmd
