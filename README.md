@@ -60,6 +60,7 @@ If using the minimal runtime, uncomment the relevant lines in the Dockerfile and
 - `gfortran` - Fortran compiler (statistical packages, linear algebra)
 - `curl-dev openssl-dev` - HTTP/SSL support
 - `cargo rust` - Rust toolchain (some modern R packages)
+- `build-base linux-headers libxml2-dev` - Required for installing R packages from GitHub that need compilation (e.g., pamgene packages)
 
 ## Git LFS
 

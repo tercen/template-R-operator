@@ -12,6 +12,8 @@ FROM tercen/runtime-r44:4.4.3-8
 #     curl-dev openssl-dev git pkgconfig
 # # Uncomment if your R packages have Rust dependencies (e.g., stringi, gifski):
 # #   cargo rust
+# # Uncomment if installing R packages from GitHub that require compilation:
+# #   build-base linux-headers libxml2-dev
 
 COPY . /operator
 WORKDIR /operator
