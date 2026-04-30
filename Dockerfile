@@ -18,7 +18,12 @@ FROM tercen/runtime-r44:4.4.3-8
 COPY . /operator
 WORKDIR /operator
 
+# Tercen runs operators as UID 1000; default /root/.cache is unreadable.
+ENV RENV_PATHS_CACHE=/operator/.cache/renv
+
 RUN R -e "renv::consent(provided = TRUE); renv::restore(confirm = FALSE)"
+
+RUN chown -R 1000:1000 /operator
 
 ENV TERCEN_SERVICE_URI https://tercen.com
 
