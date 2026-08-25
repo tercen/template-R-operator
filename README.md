@@ -102,3 +102,10 @@ Output|.
 ### Details
 
 Details on the computation.
+
+## Required GitHub secrets (release workflow)
+
+| Secret | Purpose |
+|---|---|
+| `TERCEN_TEST_OPERATOR_USERNAME` / `_PASSWORD` / `_URI` | Tercen instance used by the release install check |
+| `TERCEN_GITHUB_TOKEN` | **Classic** personal access token with `repo` scope, set as an org secret. Needed so the Tercen server can download this repo's zipball during the install check (required for private repos). Fine-grained tokens (`github_pat_...`) do **not** work on the zipball endpoint; the built-in `GITHUB_TOKEN` gives a 404. |
